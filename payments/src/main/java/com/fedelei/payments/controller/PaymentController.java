@@ -26,7 +26,6 @@ public class PaymentController {
     @Operation(summary = "Recibe notificaciones de MP", description = "Webhook que MP llama cuando el estado del pago cambia")
     @PostMapping("/webhook")
     public ResponseEntity<Void> receiveWebhook(@RequestParam("id") String id, @RequestParam("topic") String topic) {
-        // En un caso real, aquí verificas el pago en la base de datos
         System.out.println("Notificación recibida -> Topic: " + topic + " | ID: " + id);
         return ResponseEntity.ok().build(); // Responder 200 OK es obligatorio para MP
     }
